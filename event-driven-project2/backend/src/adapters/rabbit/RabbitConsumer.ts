@@ -4,7 +4,7 @@ import type { MessageRepository } from "../../ports/MessageRepository.js";
 
 export class RabbitConsumer implements MessageConsumer {
     constructor(
-        private repository: MessageRepository
+        private readonly repository: MessageRepository
     ) { }
 
     async start(): Promise<void> {

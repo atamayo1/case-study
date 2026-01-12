@@ -4,11 +4,10 @@ import type { MessagePublisher } from "../ports/MessagePublisher.js";
 
 export class MessageProcessor {
     constructor(
-        private resultPublisher: MessagePublisher
+        private readonly resultPublisher: MessagePublisher
     ) { }
 
     async process(message: Message) {
-        // Simulación de procesamiento
         const result = `Processed: ${message.content}`;
         console.log(result);
 

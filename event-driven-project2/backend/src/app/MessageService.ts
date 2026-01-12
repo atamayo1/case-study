@@ -5,8 +5,8 @@ import type { MessageRepository } from "../ports/MessageRepository.js";
 
 export class MessageService {
     constructor(
-        private publisher: MessagePublisher,
-        private repository: MessageRepository
+        private readonly publisher: MessagePublisher,
+        private readonly repository: MessageRepository
     ) { }
 
     async send(content: string) {

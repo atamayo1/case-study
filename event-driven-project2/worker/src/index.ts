@@ -2,9 +2,7 @@ import { RabbitConsumer } from "./adapters/rabbit/RabbitConsumer.js";
 import { RabbitPublisher } from "./adapters/rabbit/RabbitPublisher.js";
 import { MessageProcessor } from "./app/MessageProcessor.js";
 
-
-
-async function bootstrap() {
+const bootstrap = async () => {
     const resultPublisher = new RabbitPublisher();
     await resultPublisher.connect();
 

@@ -6,7 +6,7 @@ import type { Message } from "../../domain/Message.js";
 
 export class RabbitConsumer implements MessageConsumer {
     constructor(
-        private processor: MessageProcessor
+        private readonly processor: MessageProcessor
     ) { }
 
     async start(): Promise<void> {

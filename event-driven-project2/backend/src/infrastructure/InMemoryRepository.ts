@@ -2,7 +2,7 @@ import type { MessageRepository } from "../ports/MessageRepository.js";
 
 
 export class InMemoryRepository implements MessageRepository {
-    private results = new Map<string, string>();
+    private readonly results = new Map<string, string>();
 
     save(id: string, result: string): void {
         this.results.set(id, result);

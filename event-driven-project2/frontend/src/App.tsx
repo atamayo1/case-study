@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import './App.css'
 
 function App() {
-  const [message, setMessage] = useState("");
-  const [results, setResults] = useState([]);
+  const [message, setMessage] = useState<string>("");
+  const [results, setResults] = useState<[string, string][]>([]);
 
   const sendMessage = async () => {
     if (!message.trim()) return;

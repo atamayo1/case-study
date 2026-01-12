@@ -6,7 +6,7 @@ import { RabbitConsumer } from "./adapters/rabbit/RabbitConsumer.js";
 import { MessageService } from "./app/MessageService.js";
 import { createMessageController } from "./adapters/http/MessageController.js";
 
-async function bootstrap() {
+const bootstrap = async () => {
     const app = express();
     app.use(cors());
     app.use(express.json());

@@ -16,7 +16,7 @@ export class RabbitConsumer implements MessageConsumer {
 
         console.log("Worker waiting for messages...");
 
-        channel.consume("messages", async (msg) => {
+        channel.consume("messages", async (msg: amqp.ConsumeMessage | null) => {
             if (!msg) return;
 
             const message: Message = JSON.parse(msg.content.toString());

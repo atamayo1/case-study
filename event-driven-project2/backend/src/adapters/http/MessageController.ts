@@ -8,8 +8,8 @@ export function createMessageController(service: MessageService) {
      * @openapi
      * /api/send:
      *   post:
-     *     summary: Enviar un mensaje
-     *     description: Envía un mensaje al sistema y lo publica en RabbitMQ.
+     *     summary: Send a message
+     *     description: Sends a message to the system and publishes it to RabbitMQ.
      *     tags:
      *       - Messages
      *     requestBody:
@@ -23,10 +23,10 @@ export function createMessageController(service: MessageService) {
      *             properties:
      *               message:
      *                 type: string
-     *                 example: "Hola mundo"
+     *                 example: "Hello world"
      *     responses:
      *       200:
-     *         description: Mensaje enviado correctamente
+     *         description: Message sent successfully
      *         content:
      *           application/json:
      *             schema:
@@ -46,13 +46,13 @@ export function createMessageController(service: MessageService) {
      * @openapi
      * /api/results:
      *   get:
-     *     summary: Obtener resultados procesados
-     *     description: Retorna los resultados almacenados en memoria.
+     *     summary: Get stored results
+     *     description: Returns the results stored in memory.
      *     tags:
      *       - Messages
      *     responses:
      *       200:
-     *         description: Lista de resultados
+     *         description: List of stored results
      *         content:
      *           application/json:
      *             schema:
@@ -62,7 +62,7 @@ export function createMessageController(service: MessageService) {
      *                 properties:
      *                   message:
      *                     type: string
-     *                     example: "Hola mundo"
+     *                     example: "Hello world"
      *                   processedAt:
      *                     type: string
      *                     format: date-time

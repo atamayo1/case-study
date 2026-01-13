@@ -8,7 +8,7 @@ function App() {
   const sendMessage = async () => {
     if (!message.trim()) return;
 
-    await fetch("http://localhost:3001/send", {
+    await fetch("http://localhost:3001/api/send", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message }),
@@ -19,7 +19,7 @@ function App() {
 
   const getResults = async () => {
     try {
-      const response = await fetch("http://localhost:3001/results");
+      const response = await fetch("http://localhost:3001/api/results");
       const data = await response.json();
       setResults(data);
     } catch (err) {

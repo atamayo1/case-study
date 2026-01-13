@@ -5,7 +5,8 @@ import { RabbitPublisher } from "./adapters/rabbit/RabbitPublisher.js";
 import { RabbitConsumer } from "./adapters/rabbit/RabbitConsumer.js";
 import { MessageService } from "./app/MessageService.js";
 import { createMessageController } from "./adapters/http/MessageController.js";
-async function bootstrap() {
+import { setupSwagger } from "./adapters/http/Swagger.js";
+const bootstrap = async () => {
     const app = express();
     app.use(cors());
     app.use(express.json());
@@ -15,9 +16,10 @@ async function bootstrap() {
     const resultConsumer = new RabbitConsumer(repository);
     await resultConsumer.start();
     const service = new MessageService(publisher, repository);
-    app.use(createMessageController(service));
+    app.use("/api", createMessageController(service));
     app.listen(3001, () => {
         console.log("Backend running on port 3001");
     });
-}
+    setupSwagger(app);
+};
 bootstrap();

@@ -1,23 +1,40 @@
+version: "3.9"
+
 services:
   rabbitmq:
     image: rabbitmq:3-management
+    container_name: rabbitmq
     ports:
       - "5672:5672"
       - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   backend:
     build: ./backend
+    container_name: backend
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      RABBITMQ_HOST: rabbitmq
     ports:
       - "3001:3001"
-    depends_on:
-      - rabbitmq
 
   worker:
     build: ./worker
+    container_name: worker
     depends_on:
-      - rabbitmq
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      RABBITMQ_HOST: rabbitmq
 
   frontend:
     build: ./frontend
+    container_name: frontend
     ports:
       - "5173:5173"

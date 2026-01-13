@@ -1,4 +1,6 @@
 function isInvalidNumber(num) {
+    if (!Number(num) || num < 0) return false;
+
     const digits = num.toString();
 
     const length = digits.length;

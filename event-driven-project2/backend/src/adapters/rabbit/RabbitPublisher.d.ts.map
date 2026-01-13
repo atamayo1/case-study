@@ -1,1 +1,0 @@
-{"version":3,"file":"RabbitPublisher.d.ts","sourceRoot":"","sources":["RabbitPublisher.ts"],"names":[],"mappings":"AACA,OAAO,KAAK,EAAE,OAAO,EAAE,MAAM,yBAAyB,CAAC;AACvD,OAAO,KAAK,EAAE,gBAAgB,EAAE,MAAM,iCAAiC,CAAC;AAGxE,qBAAa,eAAgB,YAAW,gBAAgB;IACpD,OAAO,CAAC,OAAO,CAAgB;IAEzB,OAAO;IAOP,OAAO,CAAC,OAAO,EAAE,OAAO,GAAG,OAAO,CAAC,IAAI,CAAC;CAMjD"}
